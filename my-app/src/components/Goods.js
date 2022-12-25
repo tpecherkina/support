@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import items from "./etsy.json";
+import Quantity from "./Quantity";
+import Price from "./Price";
 
 const Goods = () => {
     const template = items.map((item, index) =>
@@ -15,9 +17,9 @@ const Goods = () => {
               </a>
             </div>
             <div className="item-details">
-            <p className="item-title">{item.title}</p>
-            <p className="item-price">{item.price}</p>
-      <p className="item-quantity">{item.quantity} left</p>
+            <p className="item-title">{item.title.substring(0,50)}</p>
+            <Price price={item.price} code={item.currency_code} />
+            <Quantity quantity={item.quantity} />
           </div>
           </div>
         </div>
